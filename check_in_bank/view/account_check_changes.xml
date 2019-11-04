@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_account_check_form_inherit_changes">
+            <field name="name">account.check.form.inherit.changes</field>
+            <field name="model">account.check</field>
+            <field name="inherit_id" ref="account_check.view_account_check_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header/button[3]" position="replace">
+                    <button context="{'default_action_type': 'reject'}"
+                            name="%(account_check.action_account_check_action_wizard)d"
+                            type="action" string="Supplier Rejection"
+                            attrs="{'invisible':['|',('state','not in',('handed','delivered')),('type','=','third_check')]}"
+                            help="It will create a debit note from supplier in draft state and change check state"/>
+
+                </xpath>
+                <xpath expr="//header/button[2]" position="replace">
+                    <button context="{'default_action_type': 'bank_debit'}"
+                            name="%(account_check.action_account_check_action_wizard)d"
+                            type="action" string="Bank Debit"
+                            attrs="{'invisible':['|',('state','!=','handed'),('type','=','third_check')]}"
+                            help="It will create a journal entry from Deferred Check Account to bank account and change check state"/>
+                    <button
+                            name="bank_debit_action"
+                            type="object"
+                            string="Bank Debit"
+                            class="oe_highlight"
+                            attrs="{'invisible':['|',('state','not in',['inbank']),('type','!=','third_check')]}"
+                            help="It will create a journal entry from Deferred Check Account to bank account and change check state"/>
+                </xpath>
+                <xpath expr="//field[@name='state']" position="replace"/>
+
+                <xpath expr="//header" position="inside">
+
+                    <field name="state" widget="statusbar" select="1" readonly="1"
+                           statusbar_visible="holding,handed,inbank,debited,returned,cancel"/>
+
+                </xpath>
+                <xpath expr="//field[@name='amount']" position="after">
+                    <field name="partner_id" attrs="{'invisible':[('partner_id','=',False)]}"/>
+                </xpath>
+
+
+            </field>
+        </record>
+    </data>
+</openerp>
+        

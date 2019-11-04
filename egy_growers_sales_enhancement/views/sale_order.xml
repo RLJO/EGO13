@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record id="egy_growers_sale_order_inherit_view" model="ir.ui.view">
+            <field name="name">egy.growers.sale.order.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_shipping_id']" position="after">
+                    <field name="tracking_number"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="egy_growers_sale_order_stock_inherit_view" model="ir.ui.view">
+            <field name="name">egy.growers.sale.order.stock.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_stock.view_order_form_inherit_sale_stock"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='picking_policy']" position="after">
+                    <field name="shipping_term"/>
+                    <field name="etd"/>
+                    <field name="eta"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

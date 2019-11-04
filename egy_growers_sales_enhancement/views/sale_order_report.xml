@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<odoo>
+    <template id="egy_growers_report_saleorder_document_inherit" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//table/thead/tr/th[1]" position="before">
+            <th class="text-left">Product</th>
+        </xpath>
+        <xpath expr="//table/tbody/t[2]/tr/t/td[1]" position="before">
+            <td>
+                <span t-field="line.product_id.name"/>
+            </td>
+        </xpath>
+        <xpath expr="//div[1]/table[1]" position="before">
+            <div class="table-responsive col-auto mw-100 mb-2">
+                <table class="table table-bordered table-sm" style="font-size:13px;">
+                    <thead>
+                        <tr>
+                            <td class="text-left">Tracking Number</td>
+                            <td class="text-left">Shipping Term</td>
+                            <td class="text-left">ETD</td>
+                            <td class="text-left">ETA</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-left">
+                                <p class="m-0" t-field="doc.tracking_number"/>
+                            </td>
+                            <td class="text-left">
+                                <p class="m-0" t-field="doc.shipping_term"/>
+                            </td>
+                            <td class="text-left">
+                                <p class="m-0" t-field="doc.etd"/>
+                            </td>
+                            <td class="text-left">
+                                <p class="m-0" t-field="doc.eta"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </xpath>
+        <xpath expr="//div[1]/table[1]/thead/tr/t[1]" position="replace">
+            <t t-set="colspan" t-value="4"/>
+        </xpath>
+        <xpath expr="//div[1]/table[1]/thead/tr/th[6]" position="replace">
+        </xpath>
+        <xpath expr="//div[1]/table[1]/tbody/t[2]/tr/t[1]/td[6]" position="replace">
+        </xpath>
+        <xpath expr="//div[1]/div[4]/div[1]/div[1]/table/t" position="replace">
+        </xpath>
+
+        <xpath expr="//div[1]/table[1]/tbody/t[2]/tr/t[1]/td[3]" position="replace">
+            <td class="text-right">
+                <span t-esc="'%.1f'% line.product_uom_qty"/>
+                <span t-field="line.product_uom" groups="uom.group_uom"/>
+            </td>
+        </xpath>
+        <xpath expr="//div[1]/table[1]/tbody/t[2]/tr/t[1]/td[4]" position="replace">
+            <td class="text-right">
+                <span t-esc="'%.1f'% line.price_unit"/>
+            </td>
+        </xpath>
+        <xpath expr="//div[1]/table[1]/tbody/t[2]/tr/t[1]/td[6]" position="replace">
+            <td class="text-right o_price_total">
+                <span t-esc="'%.1f'% line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+                <span t-esc="'%.1f'% line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
+            </td>
+        </xpath>
+
+    </template>
+</odoo>

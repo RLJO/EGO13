@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="egy_growers_account_invoice_refund_inherit_view" model="ir.ui.view">
+            <field name="name">egy.growers.account.invoice.refund.inherit</field>
+            <field name="model">account.invoice.refund</field>
+            <field name="inherit_id" ref="account.view_account_invoice_refund"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='description']" position="after">
+                    <field name="sale_order_id" readonly="1"/>
+                    <field name="tracking_number" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
