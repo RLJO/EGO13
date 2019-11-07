@@ -1,7 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_shipping_line,egy_growers_shipping_line_user,model_shipping_line,,1,1,1,1
-access_pol,egy_growers_pol_user,model_pol,,1,1,1,1
-access_pod,egy_growers_pod_user,model_pod,,1,1,1,1
-access_door_to_door,egy_growers_door_to_door_user,model_door_to_door,,1,1,1,1
-access_vessel,egy_growers_vessel_user,model_vessel,,1,1,1,1
-access_packhouse,egy_growers_packhouse_user,model_packhouse,,1,1,1,1
