@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<odoo>
+    <template id="egy_growers_report_journal_audit_document_inherit" inherit_id="account.report_journal">
+		<xpath expr="//table/thead/tr/th[3]" position="after">
+			<th class="text-left">Account Name</th>
+      	</xpath>
+		<xpath expr="//table/tbody/tr/td[3]" position="after">
+			<td><span t-field="aml.account_id.name"/></td>
+      	</xpath>
+  	</template>
+</odoo>

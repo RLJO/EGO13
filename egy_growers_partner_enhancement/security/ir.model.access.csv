@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_partner_mobiles,res_partner_mobiles_user,model_res_partner_mobiles,,1,1,1,1
+access_res_partner_fax,res_partner_fax_user,model_res_partner_fax,,1,1,1,1
+access_res_partner_emails,res_partner_emails_user,model_res_partner_emails,,1,1,1,1
