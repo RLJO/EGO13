@@ -117,10 +117,10 @@ class AccountPayment(models.Model):
     checkbook_block_manual_number = fields.Boolean(
         related='checkbook_id.block_manual_number',
     )
-    check_number_readonly = fields.Integer(
+    '''check_number_readonly = fields.Integer(
         related='check_number',
         readonly=True,
-    )
+    )'''
 
     @api.depends('payment_method_code')
     def _compute_check_type(self):
