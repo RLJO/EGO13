@@ -13,17 +13,17 @@ class EgyGrowersAccountPayment(models.Model):
     transer_date = fields.Date(string='Transfer Date')
     state = fields.Selection([('draft', 'Draft'),('md_approval', 'MD Approval'),('ceo_approval','CEO Approval'),('pending','Pending'), ('posted', 'Posted'), ('sent', 'Sent'), ('reconciled', 'Reconciled'), ('cancelled', 'Cancelled')],
                              readonly=True, default='draft', copy=False, string="Status", track_visibility=True)
-    invoice_ref = fields.Many2one(comodel_name='account.invoice',string='Invoice Number')
+    invoice_ref = fields.Many2one(comodel_name='account.move',string='Invoice Number')
 
 
     @api.onchange('partner_id')
     def _onchange_partner_id(self):
         super(EgyGrowersAccountPayment, self)._onchange_partner_id()
         self.invoice_ref = ''
-        vendor_bills = self.env['account.invoice'].search([('state', '=', 'open'),
+        vendor_bills = self.env['account.move'].search([('state', '=', 'open'),
                                                            ('type', '=', 'in_invoice'),
                                                            ('partner_id','=',self.partner_id.id)])
-        customer_invoices = self.env['account.invoice'].search([('state', '=', 'open'),
+        customer_invoices = self.env['account.move'].search([('state', '=', 'open'),
                                                                 ('type', '=', 'out_invoice'),
                                                                 ('partner_id','=',self.partner_id.id)])
         res = {}
@@ -94,6 +94,6 @@ class EgyGrowersAccountPayment(models.Model):
                 transfer_credit_aml = move.line_ids.filtered(lambda r: r.account_id == rec.company_id.transfer_account_id)
                 transfer_debit_aml = rec._create_transfer_entry(amount)
                 (transfer_credit_aml + transfer_debit_aml).reconcile()
-
+            print (">>>>>>>>>>>>>>>>>>>>>",rec, move ,)
             rec.write({'state': 'posted', 'move_name': move.name})
         return True

@@ -52,7 +52,10 @@ class AccountPayment(models.Model):
             if rec.payment_method_code in (
                     'received_third_check',
                     'issue_check',) and len(rec.check_ids) == 1:
+                
                 rec.check_id = rec.check_ids[0].id
+            else:
+                rec.check_id =  False
 
 # check fields, just to make it easy to load checks without need to create
 # them by a m2o record
@@ -125,12 +128,17 @@ class AccountPayment(models.Model):
     @api.depends('payment_method_code')
     def _compute_check_type(self):
         for rec in self:
-            if rec.payment_method_code == 'issue_check':
-                rec.check_type = 'issue_check'
-            elif rec.payment_method_code in [
+            if rec.payment_method_code:
+                if rec.payment_method_code == 'issue_check':
+                    rec.check_type = 'issue_check'
+                elif rec.payment_method_code in [
                     'received_third_check',
                     'delivered_third_check']:
-                rec.check_type = 'third_check'
+                    rec.check_type = 'third_check'
+                else:
+                    rec.check_type = ''   
+            else:
+                rec.check_type = ''
 
 #
 # # on change methods

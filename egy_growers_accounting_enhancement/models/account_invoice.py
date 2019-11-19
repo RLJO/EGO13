@@ -13,12 +13,10 @@ class EgyGrowersAccountMove(models.Model):
     sale_order_id = fields.Many2one(comodel_name='sale.order',compute='_get_sale_order',store=True)
     tracking_number = fields.Char(related='sale_order_id.tracking_number',inverse='sale_order_inverse', store=True)
     state = fields.Selection([
-        ('draft', 'Draft'),
+	('draft', 'Draft'),
+            ('posted', 'Posted'),
+            ('cancel', 'Cancelled')
         ('proforma', 'Pro-Forma'),
-        ('open', 'Open'),
-        ('in_payment', 'In Payment'),
-        ('paid', 'Paid'),
-        ('cancel', 'Cancelled'),
     ], string='Status', index=True, readonly=True, default='draft',
         track_visibility='onchange', copy=False,)
     shipping_term = fields.Char(related='sale_order_id.shipping_term', inverse='sale_order_inverse', string='Shipping Term')
@@ -35,6 +33,8 @@ class EgyGrowersAccountMove(models.Model):
             if sales:
                 order_id = self.env['sale.order'].search([('id', '=', sales.ids[0])])
                 rec.sale_order_id = order_id
+            else:
+                rec.sale_order_id = False
 
     def sale_order_inverse(self):
         if self.sale_order_id:
