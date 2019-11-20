@@ -15,7 +15,7 @@ class EgyGrowersAccountMove(models.Model):
     state = fields.Selection([
 	('draft', 'Draft'),
             ('posted', 'Posted'),
-            ('cancel', 'Cancelled')
+            ('cancel', 'Cancelled'),
         ('proforma', 'Pro-Forma'),
     ], string='Status', index=True, readonly=True, default='draft',
         track_visibility='onchange', copy=False,)
