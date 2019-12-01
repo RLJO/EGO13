@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+            <record id="planning_first_action" model="ir.actions.act_window">
+            <field name="name">Planning Farms</field>
+            <field name="res_model">planning.first</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+                <record id="planning_first_form_view" model="ir.ui.view">
+            <field name="name">Planning First</field>
+            <field name="model">planning.first</field>
+
+            <field name="arch" type="xml">
+                <form>
+
+                    <sheet>
+
+                            <group>
+                                 <field name="name" string="Name"/>
+
+
+                            </group>
+
+                    </sheet>
+            </form>
+            </field>
+
+        </record>
+
+         <record id="planning_first_tree_view" model="ir.ui.view">
+            <field name="name">Planning Farms</field>
+            <field name="model">planning.first</field>
+
+            <field name="arch" type="xml">
+            <tree>
+            <field name="name" string="Name"/>
+
+
+            </tree>
+            </field>
+        </record>
+
+
+        <menuitem id="Planning_menu_item_parent"
+                  name="Planning"
+                    sequence="37"
+                     groups="group_planning_first"/>
+        <menuitem id="planing_first_menu_item"
+                  name="Planning Farms"
+                  parent="Planning_menu_item_parent"
+                  action="planning_first_action"
+                    sequence="1"/>
+    </data>
+</odoo>

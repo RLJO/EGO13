@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+            <record id="contract_action" model="ir.actions.act_window">
+            <field name="name">Contract</field>
+            <field name="res_model">contract</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+                <record id="contract_form_view" model="ir.ui.view">
+            <field name="name">Contract</field>
+            <field name="model">contract</field>
+
+            <field name="arch" type="xml">
+                <form>
+                   
+                    <sheet>
+                        <group>
+                             <field name="partner_id" string="Customer Name"/>
+                            <field name="description" string="Description"/>
+
+
+                        </group>
+
+                    </sheet>
+            </form>
+            </field>
+
+        </record>
+
+         <record id="contract_tree_view" model="ir.ui.view">
+            <field name="name">Contract</field>
+            <field name="model">contract</field>
+
+            <field name="arch" type="xml">
+            <tree>
+            <field name="partner_id" string="Customert Name"/>
+                <field name="description" string="Description"/>
+
+
+            </tree>
+            </field>
+        </record>
+
+
+<!--            <record id="view_contract_search" model="ir.ui.view">-->
+<!--   <field name="name">contract.search</field>-->
+<!--   <field name="model">contract</field>-->
+<!--   <field name="arch" type="xml">-->
+<!--       <search string="ophthalmology Search Patient">-->
+<!--           <field name="patient_id"/>-->
+<!--           <field name="patient_code"/>-->
+
+<!--           <group expand="0" string="Group By">-->
+<!--               <filter name="group_by_patient" string="Patient Name" context="{'group_by': 'patient_id'}"/>-->
+<!--               <filter name="group_by_patient_code" string="Patient Code" context="{'group_by': 'patient_code'}"/>-->
+
+<!--           </group>-->
+<!--&lt;!&ndash;           <searchpanel>&ndash;&gt;-->
+<!--&lt;!&ndash;               <field name="patient_id" string="Employee" icon="fa-users"/>&ndash;&gt;-->
+<!--&lt;!&ndash;               <field name="patient_code" string="Gender" icon="fa-mars"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;           </searchpanel>&ndash;&gt;-->
+<!--       </search>-->
+<!--   </field>-->
+<!--</record>-->
+
+
+        <menuitem id="contract_menu_item_parent"
+                  name="Contract"
+                    sequence="38"
+         groups="group_contract"/>
+        <menuitem id="contract_menu_item"
+                  name="Contract"
+                  parent="contract_menu_item_parent"
+                  action="contract_action"
+                    sequence="1"
+       />
+    </data>
+</odoo>

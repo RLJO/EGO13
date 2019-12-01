@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="purchase_order_form_view_custom" model="ir.ui.view">
+            <field name="name">purchase</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                    <xpath expr="//header/field[@name='state']" position="replace">
+                         <field name = "state"  widget = "statusbar" statusbar_visible = "draft,sent,approve1,approve2,purchase" />
+
+                        </xpath>
+
+                 <xpath expr="//field[@name='date_order']" position="after">
+                         <field name = "approve_check" string="check" invisible="1" />
+
+                        </xpath>
+
+                <xpath expr="//button[@name='button_confirm']" position="replace">
+                  <button name="button_confirm" string="Confirm" type="object" attrs="{'invisible': [('state', 'not in', ['approve2'])]}"/>
+                        </xpath>
+
+                <xpath expr="//header/button[@name='button_cancel']" position="before">
+                    <button name="approve_purchase" string="First Approve" type="object" states="draft" class="oe_highlight"/>
+                        </xpath>
+                <xpath expr="//header/button[@name='button_cancel']" position="replace">
+                    <button name="button_cancel" states="draft,sent,purchase,approve1,approve2" type="object" string="Cancel"/>
+                        </xpath>
+                <xpath expr="//header/button[@name='button_cancel']" position="before">
+                    <button name="approve_manager" states="approve1" type="object" string="Manager Approve" class="oe_highlight" groups="purchase.group_purchase_manager" />
+                        </xpath>
+<!--                groups="purchase.group_purchase_manager"-->
+
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>
