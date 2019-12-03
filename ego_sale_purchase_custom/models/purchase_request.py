@@ -62,7 +62,7 @@ class PurchaseRequest(models.Model):
                                    required=True,
                                    track_visibility='onchange',
                                    default=_get_default_requested_by)
-    assigned_to = fields.Many2one('res.users', 'Approver', required=True,
+    assigned_to = fields.Many2one('res.users', 'Approver',
                                   track_visibility='onchange')
     description = fields.Text('Description')
 
