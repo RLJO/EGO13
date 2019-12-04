@@ -12,13 +12,13 @@ class EgyGrowersAccountMove(models.Model):
         readonly=True, states={'draft': [('readonly', False)],'proforma': [('readonly', False)]}, copy=True)
     sale_order_id = fields.Many2one(comodel_name='sale.order',compute='_get_sale_order',store=True)
     tracking_number = fields.Char(related='sale_order_id.tracking_number',inverse='sale_order_inverse', store=True)
-    state = fields.Selection([
-	('draft', 'Draft'),
-            ('posted', 'Posted'),
-            ('cancel', 'Cancelled'),
-        ('proforma', 'Pro-Forma'),
-    ], string='Status', index=True, readonly=True, default='draft',
-        track_visibility='onchange', copy=False,)
+    # state = fields.Selection([
+	# ('draft', 'Draft'),
+    #         ('posted', 'Posted'),
+    #         ('cancel', 'Cancelled'),
+    #     ('proforma', 'Pro-Forma'),
+    # ], string='Status', index=True, readonly=True, default='draft',
+    #     track_visibility='onchange', copy=False,)
     shipping_term = fields.Char(related='sale_order_id.shipping_term', inverse='sale_order_inverse', string='Shipping Term')
     etd = fields.Char(related='sale_order_id.etd', inverse='sale_order_inverse', string='ETD')
     eta = fields.Char(related='sale_order_id.eta', inverse='sale_order_inverse', string='ETA')
@@ -44,10 +44,10 @@ class EgyGrowersAccountMove(models.Model):
             self.sale_order_id.eta = self.eta
 
 
-    def proforma(self):
-        for rec in self:
-            rec.state = 'proforma'
-            rec.proforma_date = fields.Date.today()
+    # def proforma(self):
+    #     for rec in self:
+    #         rec.state = 'proforma'
+    #         rec.proforma_date = fields.Date.today()
 
     def action_invoice_open(self):
         # lots of duplicate calls to action_invoice_open, so we remove those already open

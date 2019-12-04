@@ -4,7 +4,7 @@ from odoo.exceptions import UserError, ValidationError
 class ACOUNTMOVE(models.Model):
     _inherit = 'account.move'
 
-    state = fields.Selection([('draft', 'Draft'),('forma', 'PRO-FORMA'),('posted', 'Open'),('payment', 'IN Payment'),('paid', 'Paid')])
+    state = fields.Selection([('draft', 'Draft'),('forma', 'PRO-FORMA'),('posted', 'Open'),('paid', 'Paid')])
     def forma_action(self):
         self.state='forma'
 

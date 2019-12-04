@@ -11,8 +11,8 @@ from odoo.addons import decimal_precision as dp
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    state = fields.Selection(selection_add=[('account_review', 'Account Review')])
-
+    # state = fields.Selection(selection_add=[('account_review', 'Account Review')])
+    #
 
     def action_confirm(self):
         Params = self.env['ir.config_parameter'].sudo()
@@ -55,8 +55,8 @@ class SaleOrder(models.Model):
                     #We raise exception
                     msg = _("""The partner %s 's credit limit has been exceeded. Please review.""") % this_partner.name
                     raise UserError(_('Credit Limit Exceeded') + '\n' + msg)
-                elif on_exceeded == 'leave_undecided':
-                    order.write({'state': 'account_review'})
+                # elif on_exceeded == 'leave_undecided':
+                #     order.write({'state': 'account_review'})
             else:
                 #Do normal stuff.
                 super(SaleOrder, order).action_confirm()
@@ -68,6 +68,6 @@ class SaleOrder(models.Model):
         return super(SaleOrder, self).action_confirm()
 
 
-    def action_account_disapprove(self):
-        self.filtered(lambda s: s.state == 'account_review').write({'state': 'draft'})
-        return True
+    # def action_account_disapprove(self):
+    #     self.filtered(lambda s: s.state == 'account_review').write({'state': 'draft'})
+    #     return True

@@ -14,7 +14,7 @@
     'data': [
         # 'security/ir.model.access.csv',
         'security/security.xml',
-        'views/purchase_order.xml',
+        # 'views/purchase_order.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode

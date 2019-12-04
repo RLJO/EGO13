@@ -19,6 +19,8 @@
         'views/contract_view.xml',
         'views/purchase_requets_view.xml',
         'views/purchase_request_data.xml',
+        'views/account_payment.xml',
+        'views/ego_acount_template.xml',
 
 
 

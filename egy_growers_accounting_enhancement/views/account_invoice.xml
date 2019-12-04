@@ -12,13 +12,13 @@
                 <field name="state" position="attributes">
                     <attribute name="statusbar_visible">draft,proforma,open,in_payment,paid</attribute>
                 </field>
-                <button name="action_invoice_sent" position="before">
-                    <button name="proforma" string="pro-Forma" type="object"
-                            attrs="{'invisible':[('state', 'not in', ('draft'))]}" class="oe_highlight"/>
-                </button>
-               <!-- <button name="action_invoice_open" position="attributes">
-                    <attribute name="attrs">{'invisible': [('state', '!=', 'proforma')]}</attribute>
-                </button>-->
+<!--                <button name="action_invoice_sent" position="before">-->
+<!--                    <button name="proforma" string="pro-Forma" type="object"-->
+<!--                            attrs="{'invisible':[('state', 'not in', ('draft'))]}" class="oe_highlight"/>-->
+<!--                </button>-->
+<!--                <button name="action_invoice_open" position="attributes">-->
+<!--                    <attribute name="attrs">{'invisible': [('state', '!=', 'proforma')]}</attribute>-->
+<!--                </button>-->
                 <xpath expr="//page[@name='other_info']//field[@name='invoice_user_id']" position="after">
                     <field name="shipping_term"/>
                     <field name="etd"/>

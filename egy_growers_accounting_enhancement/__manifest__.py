@@ -14,7 +14,7 @@
     'data': [
         # 'security/ir.model.access.csv',
         'security/security.xml',
-        'views/account_invoice.xml',
+        # 'views/account_invoice.xml',
         #'views/account_invoice_refund.xml',
         'views/account_payment.xml',
        # 'views/vendor_bill.xml',

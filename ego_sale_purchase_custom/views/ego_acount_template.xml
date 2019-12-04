@@ -1,6 +1,15 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-<!--    <template id="egy_growers_report_invoice_document_inherit" inherit_id="account.report_invoice_document">-->
+     <report
+            id="account_invoices_pro_forma"
+            model="account.move"
+            string="PRO-FORMA Invoices"
+            report_type="qweb-pdf"
+            name="account.report_invoice_with_payments"
+            file="account.report_invoice_with_payments"
+            groups="account.group_account_invoice"
+        />
+<!--     <template id="egy_growers_report" inherit_id="account.report_invoice_document">-->
 <!--        <xpath expr="//div[1]/h2[1]/span[2]" position="after">-->
 <!--            <span t-if="o.state == 'proforma'">Proforma Invoice</span>-->
 <!--        </xpath>-->
