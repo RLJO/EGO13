@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+
+
+
+                <record id="suppliers_view_first_form_view" model="ir.ui.view">
+            <field name="name">suppliers_view First</field>
+            <field name="model">transport.supplier</field>
+
+            <field name="arch" type="xml">
+                <form>
+
+                    <sheet>
+
+                            <group>
+                                 <field name="name" string="Name"/>
+
+
+                            </group>
+
+                    </sheet>
+            </form>
+            </field>
+
+        </record>
+
+         <record id="suppliers_view_first_tree_view" model="ir.ui.view">
+            <field name="name">suppliers_view Farms</field>
+            <field name="model">transport.supplier</field>
+
+            <field name="arch" type="xml">
+            <tree>
+            <field name="name" string="Name"/>
+
+
+            </tree>
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>

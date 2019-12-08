@@ -20,6 +20,8 @@
         'views/purchase_requets_view.xml',
         'views/purchase_request_data.xml',
         'views/account_payment.xml',
+        'views/check_templates.xml',
+        'views/check_second_templates.xml',
         'views/ego_acount_template.xml',
 
 

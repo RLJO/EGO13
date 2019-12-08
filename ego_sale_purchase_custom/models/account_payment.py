@@ -5,3 +5,4 @@ class ACCOUNTPAYMENT(models.Model):
     _inherit = 'account.payment'
 
     payment_actual_date=fields.Date()
+    amount_desc = fields.Char()

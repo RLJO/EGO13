@@ -12,6 +12,11 @@
 
 
                         </xpath>
+                 <xpath expr="//field[@name='payment_date']" position="after">
+                         <field name="amount_desc" string="Amount Description" attrs="{'required':[('state','=','pending')]}" />
+
+
+                        </xpath>
 
 
 

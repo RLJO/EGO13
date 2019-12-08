@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_internal_logistic,internal_logistic,model_internal_logistic,group_internal_logistic_first,1,1,1,1
+access_transport_supplier,transport_supplier,model_transport_supplier,,1,1,1,1
+access_transport_type,transport_type,model_transport_type,,1,1,1,1
+access_logistic_report_wizard,logistic_report_wizard,model_logistic_report_wizard,,1,1,1,1
+
+
+
+

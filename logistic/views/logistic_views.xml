@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+            <record id="internal_logistic_first_action" model="ir.actions.act_window">
+            <field name="name">Logistic</field>
+            <field name="res_model">internal.logistic</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+                <record id="internal_logistic_first_form_view" model="ir.ui.view">
+            <field name="name">internal_logistic First</field>
+            <field name="model">internal.logistic</field>
+
+            <field name="arch" type="xml">
+                <form>
+
+                    <sheet>
+                        <group>
+                            <group>
+                                 <field name="stock_pick_id" string="Order Number"/>
+                                  <field name="source_document" string="Source Location"/>
+                                  <field name="location_dest_id" string="Destination Location"/>
+
+
+
+                            </group>
+                     <group>
+
+                        <field name="supplier_id" string="Transport Supplier"/>
+                                  <field name="type_of_car" string="Type Of Car"/>
+                     </group>
+                        </group>
+
+                    </sheet>
+            </form>
+            </field>
+
+        </record>
+
+         <record id="internal_logistic_first_tree_view" model="ir.ui.view">
+            <field name="name">internal_logistic Farms</field>
+            <field name="model">internal.logistic</field>
+
+            <field name="arch" type="xml">
+            <tree>
+             <field name="stock_pick_id" string="Order Number"/>
+                <field name="source_document" string="Source Location"/>
+               <field name="location_dest_id" string="Destination Location"/>
+                <field name="supplier_id" string="Transport Supplier"/>
+                <field name="type_of_car" string="Type Of Car"/>
+
+            </tree>
+            </field>
+        </record>
+
+
+        <menuitem id="internal_logistic_menu_item_parent"
+                  name="Logistic"
+                    sequence="39"
+                     groups="group_internal_logistic_first"/>
+        <menuitem id="planing_first_menu_item"
+                  name="Internal Logistic"
+                  parent="internal_logistic_menu_item_parent"
+                  action="internal_logistic_first_action"
+                    sequence="1"/>
+    </data>
+</odoo>

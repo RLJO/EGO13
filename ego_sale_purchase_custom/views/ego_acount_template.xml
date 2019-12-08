@@ -6,9 +6,7 @@
             string="PRO-FORMA Invoices"
             report_type="qweb-pdf"
             name="account.report_invoice_with_payments"
-            file="account.report_invoice_with_payments"
-            groups="account.group_account_invoice"
-        />
+            file="account.report_invoice_with_payments"/>
 <!--     <template id="egy_growers_report" inherit_id="account.report_invoice_document">-->
 <!--        <xpath expr="//div[1]/h2[1]/span[2]" position="after">-->
 <!--            <span t-if="o.state == 'proforma'">Proforma Invoice</span>-->

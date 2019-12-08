@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+<report
+        id="report_alahly_check"
+        string="AL AHLY EGYPTIAN Bank"
+        model="account.payment"
+        report_type="qweb-pdf"
+        name="ego_sale_purchase_custom.report_alahly_egyptian_check"
+        file="ego_sale_purchase_custom.report_alahly_egyptian_check"
+        menu="True"
+    />
+         <template id="report_alahly_egyptian_check">
+             <t t-call="web.html_container">
+              <t t-call="web.basic_layout">
+
+              <t t-foreach="docs" t-as="product">
+                  <div class="page">
+
+
+            <div style="width: 900px;padding :0; margin :0;" >
+
+                <table style="border: 2px solid black;padding :0; margin :0;" >
+                   <tr >
+                        <td  >
+                            <p> Date </p>
+
+
+                        </td>
+                        <td >
+                            <p>  التاريخ</p>
+
+
+                        </td>
+                        <td>
+                            <strong>
+                    CIB INTERNATIONAL Bank
+                </strong>
+                        </td>
+                       <td>
+
+                       </td>
+                       <td>
+
+                       </td>
+
+                    </tr>
+                    <tr  >
+                        <td  >
+                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td  >
+                           <p> SODIC STRIP BRANCH</p>
+
+                        </td>
+
+                    </tr>
+                      <tr  >
+
+                         <td>
+
+                         </td>
+                        <td  >
+                           <span t-field="product.partner_id"/>
+                        </td>
+                          <td>
+                              <p>ادفعوا بموجب هذا الشيك إلى:</p>
+                          </td>
+                    </tr>
+                </table>
+            </div>
+
+                  </div>
+              </t>
+              </t>
+             </t>
+        </template>
+    </data>
+</odoo>
