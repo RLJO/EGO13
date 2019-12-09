@@ -3,22 +3,22 @@
     <data>
 
 <report
-        id="report_logistic_details"
-        string="Logistic Report "
-        model="logistic.report.wizard"
+        id="report_manufacturing_details"
+        string="manufacturing Report "
+        model="manufacturing.report.wizard"
         report_type="qweb-pdf"
-        name="logistic.print_logistic_details_template"
-        file="logistic.print_logistic_details_template"
+        name="manufacturing.print_manufacturing_details_template"
+        file="manufacturing.print_manufacturing_details_template"
         menu="False"
     />
-        <template id="external_layout_logistic">
-            <t t-call="logistic.external_layout_header_logistic"/>
+        <template id="external_layout_manufacturing">
+            <t t-call="manufacturing.external_layout_header_manufacturing"/>
             <t t-raw="0"/>
-             <t t-call="logistic.external_layout_footer_logistic"/>
+             <t t-call="manufacturing.external_layout_footer_manufacturing"/>
 
         </template>
 
-        <template id="external_layout_header_logistic">
+        <template id="external_layout_header_manufacturing">
            <div class="header" style="font-size:14px">
             <div class="row">
                 <div class="col-3 mb4">
@@ -42,7 +42,7 @@
 
 
         </template>
-         <template id="external_layout_footer_logistic">
+         <template id="external_layout_footer_manufacturing">
             <div class="footer" style="font-size:14px">
                <div class="text-center">
                    <hr color="black">
@@ -65,17 +65,17 @@
             </div>
         </template>
 
-        <template id="print_logistic_details_template" >
+        <template id="print_manufacturing_details_template" >
        <t t-call="web.html_container">
 
            <t t-call="web.basic_layout">
-                <t t-call="logistic.external_layout_logistic">
+                <t t-call="manufacturing.external_layout_manufacturing">
 
             <div class="page" >
 
 
                 <div align="center">
-                    <h3 class="text-center"> Logistic Report </h3>
+                    <h3 class="text-center"> Manufacturing Total Report </h3>
                     <p>
                         Date from :  <span t-esc="date_from"/>
                         Date To : <span t-esc="date_to"/>
@@ -92,13 +92,12 @@
                          <thead>
 
 
-                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Order Number</th>
-                            <th class="text-center" style="width: 15%;background:#e9ebee;color:#003c79">Source Location</th>
-                            <th class="text-center" style="width: 15%;background:#e9ebee;color:#003c79">Destination Location</th>
+                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Manufacturing Order</th>
+                              <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Manufacturing Create Date</th>
+                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Tracking No</th>
 
-                             <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Type Of Car</th>
-                             <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Transport Supplier</th>
-                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Date</th>
+
+                             <th class="text-center" style="width: 25%;background:#e9ebee;color:#003c79">Total Manufacturing Cost</th>
 
 
                         </thead>
@@ -106,24 +105,22 @@
                                   <tbody>
 
                                         <td style="padding: 0;" valign="center" align="center"  >
-                                    <span t-esc="doc['stock_pick_id']"/>
+                                    <span t-esc="doc['manufacturing_id']"/>
+                                </td>
+                                       <td style="padding: 0;" valign="center" align="center"  >
+                                     <span t-esc="doc['create_date']"/>
+
                                 </td>
 
                                 <td style="padding: 0;" valign="center" align="center"  >
-                                     <span t-esc="doc['source_document']"/>
+                                     <span t-esc="doc['track_no']"/>
                                 </td>
+
                                       <td style="padding: 0;" valign="center" align="center"  >
-                                     <span t-esc="doc['location_dest_id']"/>
+                                     <span t-esc="doc['total_cost']"/>
+
                                 </td>
-                                      <td style="padding: 0;" valign="center" align="center"  >
-                                     <span t-esc="doc['type_of_car']"/>
-                                </td>
-                                        <td style="padding: 0;" valign="center" align="center">
-                                     <span t-esc="doc['supplier_id']"/>
-                                 </td>
-                                       <td style="padding: 0;" valign="center" align="center">
-                                     <span t-esc="doc['create_date']"/>
-                                 </td>
+
 
 
                     </tbody>

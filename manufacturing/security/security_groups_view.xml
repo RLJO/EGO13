@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="0">
+
+    <record model="ir.module.category" id="module_category_logistic">
+        <field name="name">INTERNAL Logistic Configuration</field>
+        <field name="description">Internal Logistic Configuration Groups</field>
+        <field name="sequence">7</field>
+    </record>
+
+    <record id="group_internal_logistic_first" model="res.groups">
+        <field name="name">Internal Logistic</field>
+        <field name="category_id" ref="module_category_logistic"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+    </record>
+
+
+
+
+</data>
+</odoo>

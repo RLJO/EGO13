@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+
+        <record id="manufacturing_wizard_action" model="ir.actions.act_window">
+            <field name="name">manufacturing Report</field>
+            <field name="res_model">manufacturing.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+         <menuitem
+                action="manufacturing_wizard_action"
+                    name="Manufacturing Report"
+                id="manufacturing_reports_wizard_menu"
+                parent="mrp.menu_mrp_reporting"
+                sequence="4"
+        />
+            <record id="manufacturing_view_wizard" model="ir.ui.view">
+                <field name="name">total Requests Results</field>
+            <field name="model">manufacturing.report.wizard</field>
+            <field name="arch" type="xml">
+                    <form string="manufacturing Report">
+                            <group>
+
+                        <field name="date_from" string="Date From"/>
+                                 <field name="date_to" string="Date To"/>
+                            </group>
+                    <footer>
+                        <button name="get_manufacturing_report"  string="Print Report PDF" type="object" class="oe_highlight"
+                                />
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        </data>
+</odoo>
