@@ -80,30 +80,18 @@
                         Date from :  <span t-esc="date_from"/>
                         Date To : <span t-esc="date_to"/>
                     </p>
-
-
                 </div>
                 <t t-foreach="docs" t-as="doc">
 
                     <div class="col-md-6" >
-
-
                         <table border="1px" class="table table-condensed table-bordered " style="font-size:11px;" >
                          <thead>
-
-
                             <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Manufacturing Order</th>
                               <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Manufacturing Create Date</th>
                             <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Tracking No</th>
-
-
                              <th class="text-center" style="width: 25%;background:#e9ebee;color:#003c79">Total Manufacturing Cost</th>
-
-
                         </thead>
-
                                   <tbody>
-
                                         <td style="padding: 0;" valign="center" align="center"  >
                                     <span t-esc="doc['manufacturing_id']"/>
                                 </td>
@@ -120,12 +108,7 @@
                                      <span t-esc="doc['total_cost']"/>
 
                                 </td>
-
-
-
                     </tbody>
-
-
                 </table>
 
                     </div>

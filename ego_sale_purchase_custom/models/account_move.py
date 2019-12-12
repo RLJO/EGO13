@@ -12,6 +12,20 @@ class ACOUNTMOVE(models.Model):
         self.state='posted'
     def forma_paid(self):
         self.state='paid'
+class ACOUNTMOVELINE(models.Model):
+    _inherit = 'account.move.line'
+    credit_currency = fields.Float(compute="get_currency",string='Credit Currency' ,store=True)
+    debit_currency = fields.Float(compute="get_currency",string='Debit Currency',store=True)
+
+    @api.depends('amount_currency')
+    def get_currency(self):
+
+        for item in self:
+            if item.amount_currency:
+
+                    item.debit_currency = -1*(item.amount_currency)
+                    item.credit_currency=item.amount_currency
+
 
 
 

@@ -33,6 +33,7 @@
                     <field name="internal_type" invisible="1"/>
                     <field name="currency_id" options="{'no_create': True}" groups="base.group_multi_currency"/>
                     <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+
                     <field name="debit" sum="Total Debit"/>
                     <field name="credit" sum="Total Credit"/>
                     <field name="balance" sum="Total Balance"/>
@@ -61,10 +62,12 @@
                     <field name="parent_id" invisible="1" />
                     <field name="user_type_id"/>
                     <field name="internal_type" invisible="1"/>
+
                     <field name="currency_id" options="{'no_create': True}" groups="base.group_multi_currency"/>
                     <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
                     <field name="debit" sum="Total Debit"/>
                     <field name="credit" sum="Total Credit"/>
+
                     <field name="balance" sum="Total Balance"/>
                 </tree>
             </field>
