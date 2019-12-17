@@ -7,7 +7,7 @@
    
 
     """,
-    'depends' : ['base','mrp'],
+    'depends' : ['base','mrp','sale'],
     'data': [
         'security/ir.model.access.csv',
         'views/manufaturing_custom.xml',
