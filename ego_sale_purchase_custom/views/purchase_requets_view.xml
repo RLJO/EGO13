@@ -60,7 +60,7 @@
                     </header>
                     <sheet>
                         <group>
-                            <field name="partner_id" string="Vendor"/>
+                            <field name="partner_id" string="Vendor" attrs="{'required': [('state','=', 'leader_approved')]}"/>
                         </group>
 
                         <field name="is_editable" invisible="1"/>
