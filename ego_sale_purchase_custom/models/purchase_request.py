@@ -42,7 +42,7 @@ class PurchaseRequest(models.Model):
     #                                  ('warehouse_id', '=', False)])
     #     return types[:1]
 
-    partner_id=fields.Many2one('res.partner')
+    partner_id=fields.Many2one('res.partner' )
 
     # picking_type_id = fields.Many2one('stock.picking.type',
     #                                   'Picking Type', required=True,
@@ -209,18 +209,18 @@ class PurchaseRequest(models.Model):
     def make_purchase_quotation(self):
         view_id = self.env.ref('purchase.purchase_order_form')
 
-
-        vals = {
-            'partner_id': self.partner_id.id,
-            # 'picking_type_id': self.rule_id.picking_type_id.id,
-            'company_id': self.company_id.id,
-            'currency_id': self.partner_id.property_purchase_currency_id.id or self.env.user.company_id.currency_id.id,
-            # 'dest_address_id': self.partner_dest_id.id,
-            # 'origin': self.origin,
-            'payment_term_id': self.partner_id.property_supplier_payment_term_id.id,
-            'date_order': self.date_start.strftime(DEFAULT_SERVER_DATETIME_FORMAT),
-
-        }
+        # vals = {
+        #     'partner_id': partner.id,
+        #     'picking_type_id': self.rule_id.picking_type_id.id,
+        #     'company_id': self.company_id.id,
+        #     'currency_id': partner.property_purchase_currency_id.id or self.env.user.company_id.currency_id.id,
+        #     'dest_address_id': self.partner_dest_id.id,
+        #     'origin': self.origin,
+        #     'payment_term_id': partner.property_supplier_payment_term_id.id,
+        #     'date_order': purchase_date.strftime(DEFAULT_SERVER_DATETIME_FORMAT),
+        #     'fiscal_position_id': fpos,
+        #     'group_id': group
+        # }
 
         order_line = []
         for line in self.line_ids:
@@ -228,34 +228,92 @@ class PurchaseRequest(models.Model):
             fpos = self.env['account.fiscal.position']
             if self.env.uid == SUPERUSER_ID:
                 company_id = self.env.user.company_id.id
-                taxes_id = fpos.map_tax(line.product_id.supplier_taxes_id.filtered(lambda r: r.company_id.id == company_id))
+                taxes_id = fpos.map_tax(
+                    line.product_id.supplier_taxes_id.filtered(lambda r: r.company_id.id == company_id))
             else:
                 taxes_id = fpos.map_tax(line.product_id.supplier_taxes_id)
 
-            product_line = (0, 0, {'product_id' : line.product_id.id,
-                                   'state' : 'draft',
-                                   'product_uom' : line.product_id.uom_po_id.id,
-                                    'price_unit' : 0,
-                                   'date_planned' :  datetime.today().strftime(DEFAULT_SERVER_DATETIME_FORMAT),
+            product_line = (0, 0, {'product_id': line.product_id.id,
+                                   'state': 'draft',
+                                   'product_uom': line.product_id.uom_po_id.id,
+                                   'price_unit': 0,
+                                   'date_planned': datetime.today().strftime(DEFAULT_SERVER_DATETIME_FORMAT),
                                    # 'taxes_id' : ((6,0,[taxes_id.id])),
-                                   'product_qty' : line.product_qty,
-                                   'name' : line.product_id.name
+                                   'product_qty': line.product_qty,
+                                   'name': line.product_id.name
                                    })
             order_line.append(product_line)
 
-        vals = {
-            'order_line' : order_line,
-            'partner_id': self.partner_id.id,
-            # 'picking_type_id': self.rule_id.picking_type_id.id,
-            'company_id': self.company_id.id,
-            'currency_id': self.partner_id.property_purchase_currency_id.id or self.env.user.company_id.currency_id.id,
-            # 'dest_address_id': self.partner_dest_id.id,
-            # 'origin': self.origin,
-            'payment_term_id': self.partner_id.property_supplier_payment_term_id.id,
-            'date_order': self.date_start.strftime(DEFAULT_SERVER_DATETIME_FORMAT),
-        }
+        # vals = {
+        #     'order_line' : order_line
+        # }
+        #
+        # po = self.env['purchase.order'].create(vals)
 
-        po = self.env['purchase.order'].create(vals)
+        return {
+            'name': _('New Quotation'),
+            'type': 'ir.actions.act_window',
+            'res_model': 'purchase.order',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'target': 'new',
+            'view_id': view_id.id,
+            'views': [(view_id.id, 'form')],
+            'context': {
+                'default_order_line': order_line,
+                'default_state': 'draft',
+
+            }
+        }
+        # view_id = self.env.ref('purchase.purchase_order_form')
+        #
+        #
+        # vals = {
+        #     'partner_id': self.partner_id.id,
+        #     # 'picking_type_id': self.rule_id.picking_type_id.id,
+        #     'company_id': self.company_id.id,
+        #     'currency_id': self.partner_id.property_purchase_currency_id.id or self.env.user.company_id.currency_id.id,
+        #     # 'dest_address_id': self.partner_dest_id.id,
+        #     # 'origin': self.origin,
+        #     'payment_term_id': self.partner_id.property_supplier_payment_term_id.id,
+        #     'date_order': self.date_start.strftime(DEFAULT_SERVER_DATETIME_FORMAT),
+        #
+        # }
+        #
+        # order_line = []
+        # for line in self.line_ids:
+        #     product = line.product_id
+        #     fpos = self.env['account.fiscal.position']
+        #     if self.env.uid == SUPERUSER_ID:
+        #         company_id = self.env.user.company_id.id
+        #         taxes_id = fpos.map_tax(line.product_id.supplier_taxes_id.filtered(lambda r: r.company_id.id == company_id))
+        #     else:
+        #         taxes_id = fpos.map_tax(line.product_id.supplier_taxes_id)
+        #
+        #     product_line = (0, 0, {'product_id' : line.product_id.id,
+        #                            'state' : 'draft',
+        #                            'product_uom' : line.product_id.uom_po_id.id,
+        #                             'price_unit' : 0,
+        #                            'date_planned' :  datetime.today().strftime(DEFAULT_SERVER_DATETIME_FORMAT),
+        #                            # 'taxes_id' : ((6,0,[taxes_id.id])),
+        #                            'product_qty' : line.product_qty,
+        #                            'name' : line.product_id.name
+        #                            })
+        #     order_line.append(product_line)
+        #
+        # vals = {
+        #     'order_line' : order_line,
+        #     'partner_id': self.partner_id.id,
+        #     # 'picking_type_id': self.rule_id.picking_type_id.id,
+        #     'company_id': self.company_id.id,
+        #     'currency_id': self.partner_id.property_purchase_currency_id.id or self.env.user.company_id.currency_id.id,
+        #     # 'dest_address_id': self.partner_dest_id.id,
+        #     # 'origin': self.origin,
+        #     'payment_term_id': self.partner_id.property_supplier_payment_term_id.id,
+        #     'date_order': self.date_start.strftime(DEFAULT_SERVER_DATETIME_FORMAT),
+        # }
+        #
+        # po = self.env['purchase.order'].create(vals)
 
 
         # return {
@@ -274,7 +332,7 @@ class PurchaseRequest(models.Model):
         #
         #     }
         # }
-        return po,self.write({'state': 'done'})
+        # return po,self.write({'state': 'done'})
 class PURCHASEREQUESTLINE(models.Model):
 
     _name = "purchase.request.line"

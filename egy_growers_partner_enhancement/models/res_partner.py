@@ -15,7 +15,7 @@ class EgyGrowersResPartner(models.Model):
                                                                      ('retail','Retail'),
                                                                      ('reseller','Reseller'),
                                                                      ('partner','Partner')])
-    other_emails = fields.Many2many('res.partner.emails',string='Other Emails')
+    other_emails = fields.Many2many('res.partner.emails',string='Email 2')
     first_name = fields.Char(string='First Name')
     last_name = fields.Char(string='Last Name')
     #

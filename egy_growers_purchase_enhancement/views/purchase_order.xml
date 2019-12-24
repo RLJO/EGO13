@@ -13,7 +13,7 @@
                      <button name="action_back_accounting_team_approval_state" string="Back" states="md_approval"
                              groups="egy_growers_purchase_enhancement.egy_growers_general_manager"
                             class="btn-primary o_sale_confirm" type="object"/>
-                    <button name="action_ceo_confirm" string="CEO Approval" states="draft,sent"
+                    <button name="action_ceo_confirm" string="PM  Approval" states="draft,sent"
                             class="btn-primary o_sale_confirm" type="object" groups="purchase.group_purchase_user"/>
                     <button name="action_accounting_team_confirm" states="ceo_approval" string="Audit"
                             groups="egy_growers_purchase_enhancement.egy_growers_ceo_team"

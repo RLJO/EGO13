@@ -47,6 +47,8 @@ class RESPARTNER(models.Model):
     _inherit = 'res.partner'
     location = fields.Text()
     contracts_count =fields.Integer(compute="_get_contarcts_value",readonly=1)
+    mobile2 = fields.Char()
+    mobile3 = fields.Char()
     def _get_contarcts_value(self):
         contract_id = self.env['contract'].search([('partner_id', '=', self.id)])
         count=0

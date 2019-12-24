@@ -7,7 +7,7 @@
    
 
     """,
-    'depends' : ['base','account','sale','purchase','hr','mail'],
+    'depends' : ['base','account','sale','purchase','hr','mail','sale_management'],
     'data': [
         'security/security_groups_view.xml',
         'security/purchase_request_security.xml',

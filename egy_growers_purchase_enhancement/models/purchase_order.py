@@ -9,7 +9,7 @@ class RequestforQuotation(models.Model):
         ('draft', 'RFQ'),
         ('sent', 'RFQ Sent'),
         ('to approve', 'To Approve'),
-        ('ceo_approval', 'CEO Approval'),
+        ('ceo_approval', 'PM Approval'),
         ('accounting_team_approval', 'Accounting Team Approval'),
         ('md_approval', 'MD Approval'),
         ('purchase', 'Purchase Order'),
