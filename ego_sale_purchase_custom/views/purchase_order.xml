@@ -31,6 +31,12 @@
                     <field name="state" widget="statusbar"
                            statusbar_visible="draft,sent,ceo_approval,accounting_team_approval,md_approval,purchase,"/>
                 </xpath>
+                 <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="required">0</attribute>
+            </xpath>
+                <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="required">0</attribute>
+            </xpath>
             </field>
         </record>
     </data>
