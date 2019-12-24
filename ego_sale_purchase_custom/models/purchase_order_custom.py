@@ -5,10 +5,10 @@ class PURCHASEORDER(models.Model):
     _inherit = 'purchase.order'
     approve_check=fields.Boolean()
     partner_id = fields.Many2one('res.partner', string='Vendor',
-                                 change_default=True, tracking=True,
+                                 change_default=True, tracking=True,required=False,
                                  domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]",
                                  help="You can find a vendor by its Name, TIN, Email or Internal Reference.")
-    company_id = fields.Many2one('res.company', 'Company', index=True, default=lambda self: self.env.company.id)
+    company_id = fields.Many2one('res.company', 'Company', required=False,index=True, default=lambda self: self.env.company.id)
 
 
 
