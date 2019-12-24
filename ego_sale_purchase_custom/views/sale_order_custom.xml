@@ -56,12 +56,12 @@
 <!--                       <field name ="mobile3"  string="Mobile 3" widget="phone" />-->
 
                         </xpath>
-                <xpath expr="//field[@name='website']" position="before">
+<!--                <xpath expr="//field[@name='website']" position="before">-->
 
-                          <field name ="mobile2"  string="Mobile 2" widget="phone"/>
-                       <field name ="mobile3"  string="Mobile 3" widget="phone" />
+<!--                          <field name ="mobile2"  string="Mobile 2" widget="phone"/>-->
+<!--                       <field name ="mobile3"  string="Mobile 3" widget="phone" />-->
 
-                        </xpath>
+<!--                        </xpath>-->
 
 
                 <xpath expr="//div[@name='button_box']" position="inside">
