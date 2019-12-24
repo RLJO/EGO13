@@ -6,8 +6,8 @@ class PURCHASEORDER(models.Model):
     approve_check=fields.Boolean()
 
 
-    state = fields.Selection(
-                                 [('draft', 'RFQ'), ('sent', 'RFQ Sent'), ('approve1', 'First-Approve') , ('approve2', 'Manager-Approve'), ('purchase', 'Purchase Order'), ('done', 'Locked'), ('cancel', 'Cancelled')])
+    # state = fields.Selection(
+    #                              [('draft', 'RFQ'), ('sent', 'RFQ Sent'), ('approve1', 'First-Approve') , ('approve2', 'Manager-Approve'), ('purchase', 'Purchase Order'), ('done', 'Locked'), ('cancel', 'Cancelled')])
     def approve_purchase(self):
         self.state='approve1'
         self.approve_check=True
