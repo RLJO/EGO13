@@ -4,7 +4,7 @@ from odoo.exceptions import UserError, ValidationError
 class PURCHASEORDER(models.Model):
     _inherit = 'purchase.order'
     approve_check=fields.Boolean()
-    partner_id = fields.Many2one('res.partner', string='Vendor',
+    partner_id = fields.Many2one('res.partner', string='Vendor22',
                                  change_default=True, tracking=True,required=False,
                                  domain="['|', ('company_idd', '=', False), ('company_id', '=', company_id)]",
                                  help="You can find a vendor by its Name, TIN, Email or Internal Reference.")
