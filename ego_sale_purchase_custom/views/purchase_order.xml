@@ -1,6 +1,6 @@
 <odoo>
     <data>
-        <record id="egy_growers_view_purchase_order_form_inherit" model="ir.ui.view">
+        <record id="view_purchase_order_form_inherit" model="ir.ui.view">
             <field name="name">egy.growers.purchase.order.form.inherit</field>
             <field name="model">purchase.order</field>
             <field name="priority">1</field>
