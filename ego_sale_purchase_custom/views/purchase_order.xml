@@ -32,10 +32,10 @@
                            statusbar_visible="draft,sent,ceo_approval,accounting_team_approval,md_approval,purchase,"/>
                 </xpath>
                  <xpath expr="//field[@name='partner_id']" position="replace">
-                <field name="partner_id" />
+                <field name="partner_id" required="0" />
             </xpath>
                 <xpath expr="//field[@name='company_id']" position="replace">
-                <field name="company_id" />
+                <field name="company_id" required="0" />
             </xpath>
             </field>
         </record>
