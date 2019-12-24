@@ -80,7 +80,7 @@
                                 <field name="requested_by" readonly="1"/>
                                 <field name="department_id" />
 <!--                                <field name="picking_type_id"/>-->
-                                <field name="company_id"/>
+                                <field name="company_id" attrs="{'required': [('state','=', 'leader_approved')]}"/>
                                 <field name="assigned_to" invisible="1" />
                             </group>
                             <group>
