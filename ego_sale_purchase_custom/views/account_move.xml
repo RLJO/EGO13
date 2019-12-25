@@ -42,6 +42,24 @@
 
                     </xpath>
 
+                 <xpath expr="//field[@name='partner_id']" position="after">
+
+                       <field name="deliver_to_inv" string="Deliver To"/>
+                     <field name="notify_inv" string="Notify"/>
+
+                        </xpath>
+                <xpath expr="//page[@name='other_info']" position="inside">
+                    <group>
+                        <field name="grow_w_inv" string="Grow W"/>
+                     <field name="net_w_inv" string="Net W"/>
+                    <field name="no_containers_inv" string="NO Containers"/>
+                    </group>
+
+
+
+                        </xpath>
+
+
 
             </field>
         </record>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+
+       <template id="report_saleorder_document_sequence" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@id='informations']" position="after">
+            <table class="table table-bordered" style="font-size:12px">
+                <tr>
+                    <td>
+                       <strong>Deliver To:</strong>
+                    </td>
+                    <td >
+                     <p t-field="doc.deliver_to"/>
+                </td>
+                    <td>
+                      <strong>Notify:</strong>
+                    </td>
+                    <td >
+                     <p t-field="doc.notify"/>
+                </td>
+                   <td>
+                        <strong>GROW W:</strong>
+                    </td>
+                    <td>
+                       <p t-field="doc.grow_w"/>
+                </td>
+                </tr>
+                 <tr>
+
+                    <td>
+                      <strong>NET W:</strong>
+                    </td>
+                    <td>
+                      <p t-field="doc.net_w"/>
+                </td>
+                     <td>
+                       <strong>NO Containers:</strong>
+                    </td>
+                    <td>
+                       <p t-field="doc.no_containers"/>
+                </td>
+                     <td>
+
+                     </td>
+                     <td>
+
+                     </td>
+                </tr>
+            </table>
+
+
+        </xpath>
+
+
+
+    </template>
+
+     <template id="report_invoice_document_sequence" inherit_id="account.report_invoice_document">
+         <xpath expr="//div[@id='informations']" position="after">
+            <table class="table table-bordered" style="font-size:12px">
+                <tr>
+                    <td>
+                       <strong>Deliver To:</strong>
+                    </td>
+                    <td >
+                     <p t-field="o.deliver_to_inv"/>
+                </td>
+                    <td>
+                      <strong>Notify:</strong>
+                    </td>
+                    <td >
+                     <p t-field="o.notify_inv"/>
+                </td>
+                   <td>
+                        <strong>GROW W:</strong>
+                    </td>
+                    <td>
+                       <p t-field="o.grow_w_inv"/>
+                </td>
+                </tr>
+                 <tr>
+
+                    <td>
+                      <strong>NET W:</strong>
+                    </td>
+                    <td>
+                      <p t-field="o.net_w_inv"/>
+                </td>
+                     <td>
+                       <strong>NO Containers:</strong>
+                    </td>
+                    <td>
+                       <p t-field="o.no_containers_inv"/>
+                </td>
+                     <td>
+
+                     </td>
+                     <td>
+
+                     </td>
+                </tr>
+            </table>
+
+
+        </xpath>
+
+    </template>
+
+
+    </data>
+</odoo>

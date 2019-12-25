@@ -24,6 +24,7 @@
         'views/check_second_templates.xml',
         'views/ego_acount_template.xml',
         'views/purchase_order.xml',
+        'views/sale_order_template.xml',
 
 
 

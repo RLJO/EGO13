@@ -3,6 +3,11 @@ from odoo.exceptions import UserError, ValidationError
 
 class ACOUNTMOVE(models.Model):
     _inherit = 'account.move'
+    deliver_to_inv = fields.Many2one('res.partner')
+    notify_inv = fields.Many2one('res.partner')
+    grow_w_inv = fields.Char()
+    net_w_inv = fields.Char()
+    no_containers_inv = fields.Char()
 
     state = fields.Selection([('draft', 'Draft'),('forma', 'PRO-FORMA'),('posted', 'Open'),('paid', 'Paid')])
     def forma_action(self):
@@ -25,10 +30,10 @@ class ACOUNTMOVELINE(models.Model):
 
                     item.debit_currency = -1*(item.amount_currency)
                     item.credit_currency=item.amount_currency
+            else:
 
-
-
-
+                    item.debit_currency = 0
+                    item.credit_currency = 0
 
 # class ACCOUNTPAYMENT(models.Model):
 #     _inherit = 'account.payment'
