@@ -31,6 +31,7 @@
 
                         <field name="supplier_id" string="Transport Supplier"/>
                                   <field name="type_of_car" string="Type Of Car"/>
+                         <field name="date" string="Date"/>
                      </group>
                         </group>
 
@@ -47,6 +48,7 @@
             <field name="arch" type="xml">
             <tree>
              <field name="stock_pick_id" string="Order Number"/>
+                  <field name="date" string="Date"/>
                 <field name="source_document" string="Source Location"/>
                <field name="location_dest_id" string="Destination Location"/>
                 <field name="supplier_id" string="Transport Supplier"/>

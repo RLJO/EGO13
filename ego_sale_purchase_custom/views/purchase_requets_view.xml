@@ -25,8 +25,8 @@
                         <button name="button_to_approve" states="draft"
                                 string="Request approval" type="object"
                                 class="oe_highlight"/>
-                        <button name="button_leader_approved"
-                                string="Leader Approve"
+                        <button name="make_purchase_quotation"
+                                string="PM Approve"
                                 type="object"
                                 class="oe_highlight"
                                 states="to_approve"
@@ -47,13 +47,13 @@
                                 groups="ego_sale_purchase_custom.group_purchase_request_manager"
                         />
 
-                        <button string=" Create New Quotation" states="leader_approved" name="make_purchase_quotation" type="object"
-                                 groups="ego_sale_purchase_custom.group_purchase_request_manager"
+<!--                        <button string=" Create New Quotation" states="leader_approved" name="make_purchase_quotation" type="object"-->
+<!--                                 groups="ego_sale_purchase_custom.group_purchase_request_manager"-->
 
-                        />
+<!--                        />-->
 
                         <field name="state" widget="statusbar"
-                               statusbar_visible="draft,to_approve,leader_approved,'done',rejected"
+                               statusbar_visible="draft,to_approve,leader_approved,rejected"
                                statusbar_colors='{"leader_approved":"blue"}'/>
 
 

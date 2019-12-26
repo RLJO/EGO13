@@ -9,9 +9,9 @@ from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 _STATES = [
     ('draft', 'Draft'),
     ('to_approve', 'To be approved'),
-    ('leader_approved', 'Leader Approved'),
+    ('leader_approved', 'PM Approved'),
     ('rejected', 'Rejected'),
-    ('done', 'Quotation Created')
+
 ]
 
 
@@ -180,8 +180,8 @@ class PurchaseRequest(models.Model):
         return self.write({'state': 'to_approve'})
 
     
-    def button_leader_approved(self):
-        return self.write({'state': 'leader_approved'})
+    # def button_leader_approved(self):
+    #     return self.write({'state': 'leader_approved'})
 
 
     
@@ -208,6 +208,7 @@ class PurchaseRequest(models.Model):
     
     def make_purchase_quotation(self):
         view_id = self.env.ref('purchase.purchase_order_form')
+        print('hello ibrahim')
 
 
         vals = {
@@ -274,7 +275,7 @@ class PurchaseRequest(models.Model):
         #
         #     }
         # }
-        return po,self.write({'state': 'done'})
+        return po, self.write({'state': 'leader_approved'})
 class PURCHASEREQUESTLINE(models.Model):
 
     _name = "purchase.request.line"
