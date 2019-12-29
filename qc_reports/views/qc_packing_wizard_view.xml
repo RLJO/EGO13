@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+
+        <record id="qc_wizard_action" model="ir.actions.act_window">
+            <field name="name">QC Packing Report</field>
+            <field name="res_model">qc.packing.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+         <menuitem
+                  id="qc_report_menu_parent"
+                  action="qc_wizard_action"
+                  name="QC Reports"/>
+
+         <menuitem
+                action="qc_wizard_action"
+                name="QC Packing/Stock Report"
+                id="qc_reports_wizard_menu"
+                parent="qc_report_menu_parent"
+                sequence="1"/>
+           <record id="qc_view_wizard_form" model="ir.ui.view">
+                <field name="name">QC Packing/Stock Report</field>
+            <field name="model">qc.packing.wizard</field>
+            <field name="arch" type="xml">
+                    <form string="QC Packing Report">
+                            <group>
+
+                        <field name="date_from" string="Date From"/>
+                                 <field name="date_to" string="Date To"/>
+                            </group>
+                    <footer>
+                        <button name="get_qc_packing_report"  string="Print Report PDF" type="object" class="oe_highlight"
+                                />
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+        </data>
+</odoo>

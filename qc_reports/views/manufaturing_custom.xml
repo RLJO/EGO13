@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="manufacturing_form_view" model="ir.ui.view">
+            <field name="name">Manufacturing</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+                    <xpath expr="//notebook" position="inside">
+                         <page string="QC">
+
+        <field name="production_ids" editable="bottom">
+            <tree string="QC Attributes" editable="bottom" >
+
+        <field name="customer_name" string="Partner Name"/>
+        <field name="description" string="Description"/>
+            </tree>
+
+        </field>
+
+                         </page>
+
+
+
+                        </xpath>
+
+
+
+
+            </field>
+        </record>
+    </data>
+</odoo>

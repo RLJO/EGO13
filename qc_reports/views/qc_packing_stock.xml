@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="qc_packing_stock_action">
+            <field name="name">QC Packing Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">qc.packing.stock</field>
+
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <record model="ir.ui.view" id="qc_packing_report_tree_view">
+        <field name="name">QC Packing Report tree</field>
+        <field name="model">qc.packing.stock</field>
+        <field name="arch" type="xml">
+            <tree>
+               <field name="production_ids">
+            <tree>
+
+                <field name="customer_name" string="Customer Name"/>
+                <field name="manufacturing_name" string="MO Name"/>
+                 <field name="create_date" string="Create Date"/>
+            <field name="description" string="Description"/>
+
+
+            </tree>
+
+        </field>
+
+            </tree>
+
+
+
+        </field>
+        </record>
+          <record model="ir.ui.view" id="qc_packing_report_form_view">
+        <field name="name">QC Packing Report tree</field>
+        <field name="model">qc.packing.stock</field>
+        <field name="arch" type="xml">
+        <form >
+            <group>
+                <button string='Create Report' name="get_report_production_data" type="object" class="oe_highlight"/>
+        <!--<field name="sale_order_compute" invisible="1"/>-->
+            <field name="production_order" string="Manufacturing Order"/>
+
+            </group>
+
+
+        <field name="production_ids">
+        <tree >
+        <field name="customer_name" string="Customer Name"/>
+             <field name="manufacturing_name" string="MO Name"/>
+            <field name="create_date" string="Create Date"/>
+            <field name="description" string="Description"/>
+
+
+        </tree>
+        </field>
+
+
+        </form>
+        </field>
+        </record>
+        <menuitem
+                  id="qc_report_menu_parent"
+                  action="qc_packing_stock_action"
+                  name="QC Reports"
+                  />
+
+        <menuitem parent="qc_report_menu_parent"
+                  id="sale_order_report_menu"
+                  action="qc_packing_stock_action"
+                  name="QC Packing Stock Report"
+                  sequence="1"/>
+    </data>
+</odoo>
