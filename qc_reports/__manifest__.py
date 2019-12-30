@@ -15,6 +15,9 @@
 
         'views/qc_packing_wizard_view.xml',
         'views/qc_packing_report_template.xml',
+        'views/res_partner_custom.xml',
+        'views/qc_farm_wizard_view.xml',
+        'views/qc_farm_report_template.xml',
 
 
 

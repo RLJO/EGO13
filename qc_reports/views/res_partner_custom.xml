@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="res_partner_form_view" model="ir.ui.view">
+            <field name="name">partner</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                    <xpath expr="//notebook" position="inside">
+                         <page string="QC">
+
+        <field name="qc_ids" editable="bottom">
+            <tree string="QC" editable="bottom" >
+
+        <field name="estimate_test" string="Estimate"/>
+        <field name="date" string="Date"/>
+                <field name="attach_name" string="attach_name" invisible="1" readonly="1"/>
+        <field name="sample_attach" string="sample (FILE Attachment)" filename="attach_name"/>
+                 <field name="mrl_name" string="MRL(FILE Attachment)" invisible="1" readonly="1"/>
+        <field name="mrl_attach" string="MRL(FILE Attachment)"  filename="mrl_name"/>
+            </tree>
+
+        </field>
+
+                         </page>
+
+
+
+                        </xpath>
+
+
+
+
+            </field>
+        </record>
+    </data>
+</odoo>
