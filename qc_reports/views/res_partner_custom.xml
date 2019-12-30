@@ -15,10 +15,12 @@
 
         <field name="estimate_test" string="Estimate"/>
         <field name="date" string="Date"/>
-                <field name="attach_name" string="attach_name" invisible="1" readonly="1"/>
+
         <field name="sample_attach" string="sample (FILE Attachment)" filename="attach_name"/>
-                 <field name="mrl_name" string="MRL(FILE Attachment)" invisible="1" readonly="1"/>
+                <field name="attach_name"  invisible="1"/>
+
         <field name="mrl_attach" string="MRL(FILE Attachment)"  filename="mrl_name"/>
+                 <field name="mrl_name"  invisible="1"/>
             </tree>
 
         </field>

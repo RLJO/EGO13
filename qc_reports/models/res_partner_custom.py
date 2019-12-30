@@ -13,9 +13,9 @@ class MPRPRODUCTIONCUSTOM_line(models.Model):
     estimate_test=fields.Char(string="Estimate")
     date=fields.Date(string="Date")
     sample_attach = fields.Binary('Sample File',filename="attach_name")
-    attach_name = fields.Char('Attachment file')
+    attach_name = fields.Char()
     mrl_attach = fields.Binary('MRL File', filename="mrl_name")
-    mrl_name = fields.Char('Attachment MRL')
+    mrl_name = fields.Char()
 
 
 

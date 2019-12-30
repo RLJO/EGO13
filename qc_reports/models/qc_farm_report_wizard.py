@@ -58,8 +58,8 @@ class QCFARMREPORT(models.AbstractModel):
                             'partner_id': item.name,
                             'estimate_test': line.estimate_test,
                             'date': line.date,
-                            'sample_attach': line.sample_attach,
-                            'mrl_attach':line.mrl_attach,
+                            'sample_attach': line.attach_name,
+                            'mrl_attach':line.mrl_name,
 
                         })
             else:
