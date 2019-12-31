@@ -18,6 +18,8 @@
         'views/res_partner_custom.xml',
         'views/qc_farm_wizard_view.xml',
         'views/qc_farm_report_template.xml',
+        'views/qc_harvest_inspection.xml',
+        'views/qc_harvest_report_template.xml',
 
 
 

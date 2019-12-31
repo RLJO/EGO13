@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="qc_harvest_inspection_action">
+            <field name="name">QC Harvest Inspection</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">qc.harvest.inspection</field>
+
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <record model="ir.ui.view" id="qc_harvest_inspection_tree_view">
+        <field name="name">QC Harvest inspection tree</field>
+        <field name="model">qc.harvest.inspection</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="partner_id" string="Customer Name"/>
+                <field name="date" string="Date"/>
+            <field name="name" string="Description"/>
+
+            </tree>
+
+        </field>
+        </record>
+          <record model="ir.ui.view" id="qc_harvest_inspection_form_view">
+        <field name="name">QC Harvest tree</field>
+        <field name="model">qc.harvest.inspection</field>
+        <field name="arch" type="xml">
+        <form >
+            <group string="Quality Control">
+                <group>
+                    <field name="partner_id" string="Customer Name"/>
+                </group>
+                <group>
+                    <field name="date" string="Date"/>
+            <field name="name" string="Description"/>
+                </group>
+
+
+            </group>
+
+
+        </form>
+        </field>
+        </record>
+
+
+        <menuitem parent="qc_report_menu_parent"
+                  id="qc_harvest_report_menu"
+                  action="qc_harvest_inspection_action"
+                  name="QC Harvest inspection"
+                  sequence="3"/>
+    </data>
+</odoo>
