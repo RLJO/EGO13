@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+
+        <record id="qc_pre_load_wizard_action" model="ir.actions.act_window">
+            <field name="name">QC Pre Loading Quality Report</field>
+            <field name="res_model">qc.pre.load.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+         
+
+         <menuitem
+                action="qc_pre_load_wizard_action"
+                name="QC Pre Loading Quality Report"
+                id="qc_pre_load_reports_wizard_menu"
+                parent="qc_report_menu_parent"
+                sequence="5"/>
+
+           <record id="qc_pre_load_view_wizard_form" model="ir.ui.view">
+                <field name="name">QC Pre Loading Report</field>
+            <field name="model">qc.pre.load.wizard</field>
+            <field name="arch" type="xml">
+                    <form string="QC farm Report">
+                            <group>
+                            <field name="partner_id" string=" partner Name"/>
+                        <field name="date_from" string="Date From" required="1"/>
+                                 <field name="date_to" string="Date To" required="1"/>
+                            </group>
+                    <footer>
+                        <button name="get_qc_pre_load_report"  string="Print Report PDF" type="object" class="oe_highlight"
+                                />
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+        </data>
+</odoo>

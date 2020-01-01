@@ -4,6 +4,9 @@ access_qc_packing_wizard,qc_packing_wizard,model_qc_packing_wizard,,1,1,1,1
 access_qc_farm_wizard,qc_farm_wizard,model_qc_farm_wizard,,1,1,1,1
 access_res_partner_line,res_partner_line,model_res_partner_line,,1,1,1,1
 access_qc_harvest_inspection,qc_harvest_inspection,model_qc_harvest_inspection,,1,1,1,1
+access_stock_picking_line,stock_picking_line,model_stock_picking_line,,1,1,1,1
+access_qc_packhouse_wizard,qc_packhouse_wizard,model_qc_packhouse_wizard,,1,1,1,1
+access_qc_pre_load_wizard,qc_pre_load_wizard,model_qc_pre_load_wizard,,1,1,1,1
 
 
 
