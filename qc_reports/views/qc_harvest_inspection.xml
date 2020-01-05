@@ -15,7 +15,7 @@
         <field name="model">qc.harvest.inspection</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="partner_id" string="Customer Name"/>
+                <field name="partner_id" string="Name"/>
                 <field name="date" string="Date"/>
             <field name="name" string="Description"/>
 
@@ -30,7 +30,7 @@
         <form >
             <group string="Quality Control">
                 <group>
-                    <field name="partner_id" string="Customer Name"/>
+                    <field name="partner_id" string=" Name"/>
                 </group>
                 <group>
                     <field name="date" string="Date"/>

@@ -18,7 +18,7 @@
                <field name="production_ids">
             <tree>
 
-                <field name="customer_name" string="Customer Name"/>
+                <field name="customer_name" string=" Name"/>
                 <field name="manufacturing_name" string="MO Name"/>
                  <field name="create_date" string="Create Date"/>
             <field name="description" string="Description"/>
@@ -49,7 +49,7 @@
 
         <field name="production_ids">
         <tree >
-        <field name="customer_name" string="Customer Name"/>
+        <field name="customer_name" string=" Name"/>
              <field name="manufacturing_name" string="MO Name"/>
             <field name="create_date" string="Create Date"/>
             <field name="description" string="Description"/>
