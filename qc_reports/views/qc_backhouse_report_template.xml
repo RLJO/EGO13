@@ -3,22 +3,22 @@
     <data>
 
     <report
-        id="report_qc_packing"
-        string="QC Reports Report "
-        model="qc.packing.wizard"
+        id="report_qc_packhouse"
+        string="QC packing House Received Report "
+        model="qc.packhouse.wizard"
         report_type="qweb-pdf"
-        name="qc_reports.print_qc_packing_details_template"
-        file="qc_reports.print_qc_packing_details_template"
+        name="qc_reports.print_qc_packhouse_details_template"
+        file="qc_reports.print_qc_packhouse_details_template"
         menu="False"
     />
-        <template id="external_layout_qc_reports">
-            <t t-call="qc_reports.external_layout_header_qc_reports"/>
+        <template id="external_layout_qc_packhouse_reports">
+            <t t-call="qc_reports.external_layout_header_qc_packhouse_reports"/>
             <t t-raw="0"/>
-             <t t-call="qc_reports.external_layout_footer_qc_reports"/>
+             <t t-call="qc_reports.external_layout_footer_qc_packhouse_reports"/>
 
         </template>
 
-        <template id="external_layout_header_qc_reports">
+        <template id="external_layout_header_qc_packhouse_reports">
            <div class="header" style="font-size:14px">
             <div class="row">
                 <div class="col-3 mb4">
@@ -42,7 +42,7 @@
 
 
         </template>
-         <template id="external_layout_footer_qc_reports">
+         <template id="external_layout_footer_qc_packhouse_reports">
             <div class="footer" style="font-size:14px">
                <div class="text-center">
                    <hr color="black">
@@ -65,17 +65,17 @@
             </div>
         </template>
 
-        <template id="print_qc_packing_details_template" >
+        <template id="print_qc_packhouse_details_template" >
        <t t-call="web.html_container">
 
            <t t-call="web.basic_layout">
-                <t t-call="qc_reports.external_layout_qc_reports">
+                <t t-call="qc_reports.external_layout_qc_packhouse_reports">
 
             <div class="page" >
 
 
                 <div align="center">
-                    <h3 class="text-center"> QC Packing /Stock Report </h3>
+                    <h3 class="text-center"> QC Packing House Receive Report </h3>
                     <p>
                         Date from :  <span t-esc="date_from"/>
                         Date To : <span t-esc="date_to"/>
@@ -87,10 +87,10 @@
                     <div class="col-md-6" >
                         <table border="1px" class="table table-condensed table-bordered " style="font-size:11px;" >
                          <thead>
-                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Name</th>
-                              <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Manufacturing Order</th>
-<!--                                <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Create Date</th>-->
-                              <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Description</th>
+                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">RECEIPT Number</th>
+                              <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Vendor Name</th>
+                                <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79"> Description</th>
+                              <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Date</th>
 
                         </thead>
                                   <tbody>
@@ -98,27 +98,28 @@
                              <td style="padding: 0;" valign="center" align="center"  >
 
 
-                                   <span t-esc="doc['customer_name']"/>
+                                   <span t-esc="doc['picking_order']"/>
                                 </td>
                                            <td style="padding: 0;" valign="center" align="center"  >
 
 
-                                                <span t-esc="doc['manufacturing_name']"/>
+                                                <span t-esc="doc['partner_id']"/>
 
                                 </td>
-<!--                                            <td style="padding: 0;" valign="center" align="center"  >-->
+                                            <td style="padding: 0;" valign="center" align="center"  >
 
-<!--                        -->
-<!--                                                                                                <span t-esc="doc['manufacturing_name']"/>-->
-<!--                                                <span t-esc="doc['create_date']"/>-->
 
-<!--                                </td>-->
+                                                <span t-esc="doc['description']"/>
+
+
+                                </td>
                                       <td style="padding: 0;" valign="center" align="center"  >
 
 
-                                           <span t-esc="doc['description']"/>
+                                           <span t-esc="doc['date']" />
 
                                 </td>
+
 
                     </tbody>
                 </table>

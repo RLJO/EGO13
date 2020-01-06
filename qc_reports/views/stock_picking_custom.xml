@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="stock_picking_form_view" model="ir.ui.view">
+            <field name="name">stock picking</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                    <xpath expr="//notebook" position="inside">
+                         <page string="QC">
+
+        <field name="qc_ids" editable="bottom">
+            <tree string="QC" editable="bottom" >
+
+        <field name="description" string="Description"/>
+        <field name="date" string="Date"/>
+
+            </tree>
+
+        </field>
+
+                         </page>
+
+
+
+                        </xpath>
+
+
+
+
+            </field>
+        </record>
+    </data>
+</odoo>

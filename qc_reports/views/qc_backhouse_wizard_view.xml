@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+
+        <record id="qc_packhouse_wizard_action" model="ir.actions.act_window">
+            <field name="name">QC Packing House Receiving Report</field>
+            <field name="res_model">qc.packhouse.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+         
+
+         <menuitem
+                action="qc_packhouse_wizard_action"
+                name="QC back house receiving Report"
+                id="qc_packhouse_reports_wizard_menu"
+                parent="qc_report_menu_parent"
+                sequence="4"/>
+
+           <record id="qc_packhouse_view_wizard_form" model="ir.ui.view">
+                <field name="name">QC farm Report</field>
+            <field name="model">qc.packhouse.wizard</field>
+            <field name="arch" type="xml">
+                    <form string="QC farm Report">
+                            <group>
+                            <field name="partner_id" string="Name"/>
+                        <field name="date_from" string="Date From" required="1"/>
+                                 <field name="date_to" string="Date To" required="1"/>
+                            </group>
+                    <footer>
+                        <button name="get_qc_packhouse_report"  string="Print Report PDF" type="object" class="oe_highlight"
+                                />
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+        </data>
+</odoo>
